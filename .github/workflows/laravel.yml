@@ -38,6 +38,7 @@ jobs:
       with:
         image: lukefarmer/lbuilder
         registry: docker.io
-        dockerfile: Dockerfile.Dev
+        dockerfile: Dockerfile.dev
+        tags: latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
