@@ -43,6 +43,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
+            whoami
             git pull
             sail down
             sail up -d
