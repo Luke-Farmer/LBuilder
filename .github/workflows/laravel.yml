@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
+            cd ~/lbuilder/LBuilder
             git pull
             sail down
             sail up -d
