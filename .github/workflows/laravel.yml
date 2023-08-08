@@ -28,3 +28,4 @@ jobs:
             bash ./vendor/laravel/sail/bin/sail down
             bash ./vendor/laravel/sail/bin/sail up -d
             bash ./vendor/laravel/sail/bin/sail artisan migrate
+            bash ./vendor/laravel/sail/bin/sail artisan migrate
