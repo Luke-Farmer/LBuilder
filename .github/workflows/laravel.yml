@@ -22,5 +22,8 @@ jobs:
           script: |
             cd ~/lbuilder/LBuilder
             git pull
+            composer install
+            npm install && npm run dev
+            php artisan migrate
             bash ./vendor/laravel/sail/bin/sail down
             bash ./vendor/laravel/sail/bin/sail up -d
