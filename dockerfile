@@ -1,51 +1,42 @@
-FROM ubuntu:20.04
-LABEL maintainer="Luis Dalmolin <luis@kirschbaumdevelopment.com>"
-ARG DEBIAN_FRONTEND=noninteractive
+FROM php:8.1-apache
 
-ENV GOSS_VERSION="0.3.6"
+WORKDIR /var/www/laravel
 
-RUN apt-get update && apt-get install -y software-properties-common curl
-RUN add-apt-repository ppa:ondrej/php -y
-RUN add-apt-repository ppa:git-core/ppa -y
-RUN apt-get update -y
-RUN apt-get install -y \
+RUN curl -o /usr/local/bin/composer https://getcomposer.org/download/latest-stable/composer.phar \
+    && chmod +x /usr/local/bin/composer
+
+# hadolint ignore=DL3008
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    cron \
+    icu-devtools \
+    jq \
+    libfreetype6-dev libicu-dev libjpeg62-turbo-dev libpng-dev libpq-dev \
+    libsasl2-dev libssl-dev libwebp-dev libxpm-dev libzip-dev libzstd-dev \
     unzip \
-    php8.2-cli \
-    php8.2-gd \
-    php8.2-ldap \
-    php8.2-mbstring \
-    php8.2-mysql \
-    php8.2-pgsql \
-    php8.2-sqlite3 \
-    php8.2-xml \
-    php8.2-xsl \
-    php8.2-zip \
-    php8.2-curl \
-    php8.2-soap \
-    php8.2-gmp \
-    php8.2-bcmath \
-    php8.2-intl \
-    php8.2-imap \
-    php8.2-phpdbg \
-    php8.2-bz2 \
-    php8.2-redis
+    zlib1g-dev \
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# composer
-ENV COMPOSER_HOME=/composer
-ENV PATH=./vendor/bin:/composer/vendor/bin:/root/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# hadolint ignore=DL3059
+RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
+    && pecl install --configureoptions='enable-redis-igbinary="yes" enable-redis-lzf="yes" enable-redis-zstd="yes"' igbinary zstd redis \
+    && pecl clear-cache \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm \
+    && docker-php-ext-install gd intl pdo_mysql pdo_pgsql zip \
+    && docker-php-ext-enable igbinary opcache redis zstd
 
-# mysql client
-RUN apt-get install -y mysql-client
+COPY composer.json composer.lock ./
+RUN composer install --no-autoloader --no-scripts --no-dev
 
-# git
-RUN apt-get install -y git
+COPY docker/ /
+RUN a2enmod rewrite headers \
+    && a2ensite laravel \
+    && a2dissite 000-default \
+    && chmod +x /usr/local/bin/docker-laravel-entrypoint
 
-# node and yarn
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-RUN npm install -g yarn
+COPY . /var/www/laravel
+RUN composer install --optimize-autoloader --no-dev
 
-# goss
-RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
+CMD ["docker-laravel-entrypoint"]
