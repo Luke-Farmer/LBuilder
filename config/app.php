@@ -5,6 +5,10 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+
+    'support_email' => env('SUPPORT_EMAIL', 'example@email.com'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
