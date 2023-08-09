@@ -5,3 +5,36 @@
 [x-cloak] {
     display: none;
 }
+
+.auth-form-container {
+    background-color: #11212D;
+    border-radius: 0;
+    padding: 2.5rem;
+}
+
+.bg-auth {
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 4, 15, 0.75), rgba(0, 0, 0, 0.75)),url('/assets/img/admin-background.png');
+}
+
+.auth-form label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.25rem;
+}
+
+.auth-form input:focus {
+    --tw-ring-color: transparent;
+    border-color: transparent;
+}
+
+.auth-form input[type='checkbox']:checked {
+    background-color: #1AB188;
+}
+
+.auth-form button {
+    background-color: #1AB188;
+}
+
+.auth-form button:hover {
+    background-color: #179b77;
+}
