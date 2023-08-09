@@ -164,15 +164,16 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: -1
-}</component>
+  <component name="ProjectColorInfo">
+  "customColor": "",
+  "associatedIndex": -1
+  </component>
   <component name="ProjectId" id="2TigpNVtJpTw0WMkyMtWsP8EohI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -188,6 +189,21 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="PropertiesComponent">
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/install-perms-styles",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/luke/.cache/JetBrains/RemoteDev/dist/cecb9a8cd447c_PhpStorm-2023.2/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Space Code Reviews" />
@@ -195,6 +211,7 @@
       <window_info id="Merge Requests" />
       <window_info id="Commit_Guest" />
       <window_info id="npm" side_tool="true" weight="0.23776042" />
+      <window_info active="true" id="npm" side_tool="true" visible="true" weight="0.23776042" />
       <window_info id="Pull Requests" weight="0.23776042" />
       <window_info id="Robo tasks" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.23776042" />
@@ -211,6 +228,7 @@
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32994187" />
       <window_info anchor="bottom" id="Debug" order="3" show_stripe_button="false" weight="0.32994187" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.32994187" />
+      <window_info anchor="bottom" id="Services" order="3" weight="0.32994187" />
       <window_info anchor="right" id="make" side_tool="true" />
       <window_info anchor="right" id="Meet New UI" side_tool="true" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.32994792" />
@@ -261,6 +279,7 @@
       <workItem from="1691548928324" duration="6890000" />
       <workItem from="1691605244039" duration="4280000" />
       <workItem from="1691609680865" duration="2359000" />
+      <workItem from="1691548928324" duration="777000" />
     </task>
     <task id="LOCAL-00001" summary="feat: published routes, styled authentication:">
       <option name="closed" value="true" />
@@ -303,6 +322,7 @@
       <updated>1691584323876</updated>
     </task>
     <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
