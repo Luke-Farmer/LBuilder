@@ -2,9 +2,9 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-/public/build
-/public/hot
-/public/storage
+/public/build/
+/public/hot/
+/public/storage/
 
 # Laravel 4 specific
 bootstrap/compiled.php

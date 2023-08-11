@@ -594,24 +594,7 @@
       <change afterPath="$PROJECT_DIR$/public/codemirror/theme/yeti.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/codemirror/theme/yonce.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/codemirror/theme/zenburn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/codemirror.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/assets/app-2fa36d20.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/application-logo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/responsive-nav-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/responsive-nav-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -789,13 +772,13 @@
       <window_info id="npm" side_tool="true" weight="0.17161459" />
       <window_info id="Pull Requests" weight="0.23776042" />
       <window_info id="Robo tasks" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17161459" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17161459" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.23776042" />
-      <window_info active="true" id="Commit" order="2" visible="true" weight="0.17161459" />
+      <window_info id="Commit" order="2" weight="0.17161459" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Messages" weight="0.32994187" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32994187" />
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Run" weight="0.32994187" />
       <window_info anchor="bottom" id="Find" weight="0.32994187" />
@@ -861,7 +844,7 @@
       <workItem from="1691605244039" duration="4280000" />
       <workItem from="1691609680865" duration="2359000" />
       <workItem from="1691548928324" duration="777000" />
-      <workItem from="1691677684985" duration="25765000" />
+      <workItem from="1691677684985" duration="26079000" />
     </task>
     <task id="LOCAL-00001" summary="feat: published routes, styled authentication:">
       <option name="closed" value="true" />
@@ -895,15 +878,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691548316443</updated>
     </task>
-    <task id="LOCAL-00005" summary="feat: Install Laravel Permissions:">
+    <task id="LOCAL-00005" summary="feat: Added dashboard and page builder:">
       <option name="closed" value="true" />
-      <created>1691584323876</created>
+      <created>1691723219028</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1691584323876</updated>
+      <updated>1691723219028</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
