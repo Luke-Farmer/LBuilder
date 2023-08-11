@@ -69,7 +69,7 @@ class PageController extends Controller
     {
         $page = Page::find($id);
         $validator =  Validator::make($request->all(), [
-            'slug' => 'required|alpha_dash|min:5|max:255|unique:pages,slug'
+            'slug' => 'required|alpha_dash|min:1|max:255|unique:pages,slug'
         ]);
         if ($request->input('slug') !== $page->slug && $validator->fails() || is_null($request->title)) {
             return redirect()
