@@ -6,6 +6,9 @@ yarn-error.log
 /public/hot/
 /public/storage/
 
+./idea
+./idea/*
+
 # Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
