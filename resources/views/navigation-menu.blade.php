@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-[#11212D]">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto pr-4 pl-0 sm:pr-6 sm:pl-0 lg:pr-8 lg:pl-0">
-        <div class="flex justify-end h-16">
+        <div class="flex justify-between h-16">
 {{--            <div class="flex">--}}
 {{--                <!-- Logo -->--}}
 {{--                <div class="shrink-0 flex items-center">--}}
@@ -17,7 +17,11 @@
 {{--                    </x-nav-link>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-
+            <div class="flex items-center">
+                <x-authentication-card-logo class="w-16 h-16" />
+                <h1 class="font-bold text-gray-200 text-[1.25rem] ml-3">LBuilder</h1>
+                <i class="bi bi-x cursor-pointer ml-28 lg:hidden" onclick="openSidebar()"></i>
+            </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -25,7 +29,7 @@
                         <x-dropdown align="right" width="60">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-white bg-[#1AB188] transition ease-in-out duration-150">
                                         {{ Auth::user()->currentTeam->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -38,9 +42,9 @@
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Team') }}
-                                    </div>
+{{--                                    <div class="block px-4 py-2 text-xs text-white">--}}
+{{--                                        {{ __('Manage Team') }}--}}
+{{--                                    </div>--}}
 
                                     <!-- Team Settings -->
                                     <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
@@ -48,7 +52,7 @@
                                     </x-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                        <x-dropdown-link href="{{ route('teams.create') }}">
+                                        <x-dropdown-link class="mt-1" href="{{ route('teams.create') }}">
                                             {{ __('Create New Team') }}
                                         </x-dropdown-link>
                                     @endcan
@@ -76,12 +80,12 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                <button class="flex text-sm rounded-full focus:outline-none focus:border-gray-300 transition">
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-white bg-[#1AB188] transition ease-in-out duration-150">
                                         {{ Auth::user()->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -94,9 +98,9 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
+{{--                            <div class="block px-4 py-2 text-xs text-gray-400">--}}
+{{--                                {{ __('Manage Account') }}--}}
+{{--                            </div>--}}
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
@@ -108,13 +112,13 @@
                                 </x-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-200"></div>
+{{--                            <div class="border-t border-gray-200"></div>--}}
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
-                                <x-dropdown-link href="{{ route('logout') }}"
+                                <x-dropdown-link class="mt-1" href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>

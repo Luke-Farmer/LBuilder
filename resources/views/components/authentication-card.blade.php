@@ -10,7 +10,11 @@
                 @endif
             </h1>
         </div>
-        <p class="text-white text-center" style="margin-bottom: 1.5rem;">If you need any assistance, send a message to {{ config('app.support_email') ?? 'Set `SUPPORT_EMAIL` in .env file' }}. We will get back to you as soon as possible!</p>
+        @if(Illuminate\Support\Facades\Route::is('login') || Illuminate\Support\Facades\Route::is('register'))
+            <p class="text-white text-center" style="margin-bottom: 1.5rem;">If you need any assistance, send a message to {{ config('app.support_email') ?? 'Set `SUPPORT_EMAIL` in .env file' }}. We will get back to you as soon as possible!</p>
+        @elseif(Illuminate\Support\Facades\Route::is('homepage'))
+            <p class="text-white text-center" style="margin-bottom: 1.5rem;">Login to setup the homepage & site settings.</p>
+        @endif
         {{ $slot }}
     </div>
 </div>

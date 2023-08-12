@@ -1,14 +1,14 @@
 <x-app-layout>
-    <div class="grid grid-cols-12 gap-0">
+    @livewire('navigation-menu')
+    <div class="grid grid-cols-12 gap-0 bg-[#11212D]">
         <div class="col-span-2">
             <x-sidebar />
         </div>
-        <div class="col-span-10 bg-[#0C0D13]">
-            @livewire('navigation-menu')
+        <div class="col-span-10 bg-[#0C0D13] rounded-tl-md">
             <div class="p-8">
                 <div class="grid grid-cols-1 gap-8 mb-8">
                     <div class="col-span-1 p-8 bg-[#14151F] rounded-md">
-                        <form class="p-3 ps-0 mb-0" action="{{ route('pages.update', $page->id) }}" method="POST">
+                        <form class="" action="{{ route('pages.update', $page->id) }}" method="POST">
                             @method('PUT')
                             @csrf
                             <div class="flex items-center justify-between mb-4">
@@ -19,29 +19,34 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="flex flex-col mb-4">
-                                    <label class="text-white text-md mb-1">Title - <span class="text-xs">(Page Identifier)</span></label>
-                                    <input class="rounded-md" type="text" label="title" name="title" value="{{ $page->title }}">
-                                </div>
-                                <div class="flex flex-col mb-4">
-                                    <label class="text-white text-md mb-1">URL - <span class="text-xs">(Don't include "/" at the start or end)</span></label>
-                                    <input class="rounded-md" type="text" label="slug" name="slug" value="{{ $page->slug }}">
-                                </div>
+                                @if($page->slug === "/")
+                                    <input type="hidden" class="rounded-md" type="text" label="title" name="title" value="/">
+                                    <input type="hidden" class="rounded-md" type="text" label="slug" name="slug" value="Homepage">
+                                @else
+                                    <div class="flex flex-col mb-4">
+                                        <label class="text-white text-md mb-1">Title - <span class="text-xs">(Page Identifier)</span></label>
+                                        <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="title" name="title" value="{{ $page->title }}">
+                                    </div>
+                                    <div class="flex flex-col mb-4">
+                                        <label class="text-white text-md mb-1">URL - <span class="text-xs">(Don't include "/" at the start or end)</span></label>
+                                        <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="slug" name="slug" value="{{ $page->slug }}">
+                                    </div>
+                                @endif
                                 <div class="flex flex-col mb-4">
                                     <label class="text-white text-md mb-1">SEO Title - <span class="text-xs">(Recommended 50 - 60 characters long)</span></label>
-                                    <input class="rounded-md" type="text" label="seo_title" name="seo_title" value="{{ $page->seo_title }}">
+                                    <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="seo_title" name="seo_title" value="{{ $page->seo_title }}">
                                 </div>
                                 <div class="flex flex-col mb-4">
                                     <label class="text-white text-md mb-1">SEO Description - <span class="text-xs">(Recommended 150 - 160 characters long)</span></label>
-                                    <input class="rounded-md" type="text" label="seo_description" name="seo_description" value="{{ $page->seo_description }}">
+                                    <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="seo_description" name="seo_description" value="{{ $page->seo_description }}">
                                 </div>
                                 <div class="flex flex-col mb-4">
                                     <label class="text-white text-md mb-1">SEO Image - <span class="text-xs">(Recommended dimensions of at least 1,200 x 630 pixels)</span></label>
-                                    <input class="rounded-md" type="text" label="seo_image" name="seo_image" value="{{ $page->seo_image }}">
+                                    <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="seo_image" name="seo_image" value="{{ $page->seo_image }}">
                                 </div>
                                 <div class="flex flex-col mb-4">
                                     <label class="text-white text-md mb-1">Page Status - <span class="text-xs">(Published / Draft)</span></label>
-                                    <select name="is_draft" class="rounded-md">
+                                    <select name="is_draft" class="rounded-md text-white bg-[#282a36] border-0">
                                         <option value="{{ $page->is_draft }}">
                                             @if($page->is_draft == 1)
                                                 Draft

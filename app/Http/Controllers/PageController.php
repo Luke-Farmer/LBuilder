@@ -46,8 +46,19 @@ class PageController extends Controller
     public function show($page)
     {
         $pageData = Page::where('slug', '=', $page)->first();
-        if($pageData->is_draft == 1 && !Auth::check()) {
+        if($pageData->is_draft == '1' && !Auth::check() || $pageData->is_deleted == '1') {
             return redirect()->to('/');
+        }
+        return view('pages.template')
+            ->withPage($pageData);
+    }
+
+    public function home()
+    {
+        $pageData = Page::where('slug', '=', '/')->first();
+        if(is_null($pageData) || $pageData->is_draft === "1" && !Auth::check() || $pageData->is_deleted === "1" ) {
+            return redirect()
+                ->route('dashboard');
         }
         return view('pages.template')
             ->withPage($pageData);
@@ -76,8 +87,10 @@ class PageController extends Controller
                 ->back()
                 ->with('message', 'Page title and URL must not be empty.');
         }
-        $page->title = $request->input('title');
-        $page->slug = $request->input('slug');
+        if ($page->slug !== '/') {
+            $page->title = $request->input('title');
+                    $page->slug = $request->input('slug');
+        }
         $page->seo_title = $request->input('seo_title');
         $page->seo_description = $request->input('seo_description');
         $page->seo_image = $request->input('seo_image');
@@ -94,8 +107,33 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Page $page)
+    public function destroy($id)
     {
-        //
+
+        $page = Page::find($id);
+        if ($page->is_deleted === '1') {
+            $page->delete();
+        } else {
+           $page->is_draft = '1';
+           $page->is_deleted = '1';
+           $page->save();
+        }
+        return redirect()
+            ->back()
+            ->with('message', 'Page deleted successfully.');
+    }
+
+    public function deleted()
+    {
+        return view('pages.deleted')
+            ->withPages($pages = Page::all());
+    }
+
+    public function restore($id) {
+        $page = Page::find($id);
+        $page->is_deleted = '0';
+        $page->save();
+        return redirect()
+            ->back();
     }
 }

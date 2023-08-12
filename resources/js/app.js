@@ -7,3 +7,10 @@ window.Alpine = Alpine;
 Alpine.plugin(focus);
 
 Alpine.start();
+
+function deleting(e)
+{
+    if(!confirm('Are you sure you want to delete?')) {
+    e.preventDefault();
+}
+}

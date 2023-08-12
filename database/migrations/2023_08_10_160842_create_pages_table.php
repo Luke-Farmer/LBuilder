@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('page_js')->nullable();
             $table->string('is_draft')->nullable()->default('1');
             $table->string('slug')->unique();
+            $table->string('is_deleted')->nullable();
             $table->timestamps();
         });
     }
