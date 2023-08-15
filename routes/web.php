@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ComponentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +18,37 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('homepage');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+
     Route::prefix('admin')->group(function () {
+
         Route::get('/dashboard', function () {
             return view('dashboard');
         })->name('dashboard');
-        Route::get('/deleted', [PageController::class, 'deleted'])
-            ->name('pages.deleted');
-        Route::post('/deleted/{id}', [PageController::class, 'restore'])
-            ->name('pages.restore');
+
+        Route::prefix('pages')->group(function () {
+
+            Route::get('/deleted', [PageController::class, 'deleted'])
+                ->name('pages.deleted');
+
+            Route::post('/deleted/{id}', [PageController::class, 'restore'])
+                ->name('pages.restore');
+
+        });
+
+        Route::prefix('components')->group(function () {
+
+            Route::get('/deleted', [ComponentController::class, 'deleted'])
+                ->name('components.deleted');
+
+            Route::post('/deleted/{id}', [ComponentController::class, 'restore'])
+                ->name('components.restore');
+
+        });
+
         Route::resource('pages', PageController::class);
+
+        Route::resource('components', ComponentController::class);
+
     });
 });
 
