@@ -22,7 +22,10 @@
                                     <input class="rounded-md text-white bg-[#282a36] border-0" type="text" label="slug" name="slug" value="">
                                 </div>
                             </div>
-                            <input href="{{ route('pages.store') }}" value="Create" type="submit" class="rounded-md hover:cursor-pointer mt-4 inline-flex items-center px-4 py-2 border border-transparent font-semibold text-xs text-white uppercase tracking-widest bg-[#1AB188] hover:bg-[#179b77] focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            <div class="flex items-center mt-4">
+                                <input href="{{ route('pages.store') }}" value="Create" type="submit" class="rounded-md hover:cursor-pointer inline-flex items-center px-4 py-2 border border-transparent font-semibold text-xs text-white uppercase tracking-widest bg-[#1AB188] hover:bg-[#179b77] focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                <p class="text-white font-bolder ml-4">{{ session('message') }}</p>
+                            </div>
                         </form>
                     </div>
                 </div>

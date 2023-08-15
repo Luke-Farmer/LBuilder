@@ -16,7 +16,7 @@ class PageController extends Controller
     public function index()
     {
         return view('pages.index')
-            ->withPages($pages = Page::all());
+            ->withPages($pages = Page::orderBy('title')->get());
     }
 
     /**
@@ -33,6 +33,14 @@ class PageController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $page = new Page;
+        $validator =  Validator::make($request->all(), [
+            'slug' => 'required|alpha_dash|min:1|max:255|unique:pages,slug'
+        ]);
+        if ($validator->fails() || is_null($request->title)) {
+            return redirect()
+                ->back()
+                ->with('message', 'Page Title and URL must be valid.');
+        }
         $page->title = $request->title;
         $page->slug = $request->slug;
         $page->save();
@@ -85,7 +93,7 @@ class PageController extends Controller
         if ($request->input('slug') !== $page->slug && $validator->fails() || is_null($request->title)) {
             return redirect()
                 ->back()
-                ->with('message', 'Page title and URL must not be empty.');
+                ->with('message', 'Page Title and URL must be valid.');
         }
         if ($page->slug !== '/') {
             $page->title = $request->input('title');

@@ -9,12 +9,28 @@
     </head>
     <body>
         <style>
+            @foreach(App\Models\Component::all() as $componentData)
+                @if(str_contains($page->content, '[[' . $componentData->title . ']]'))
+                    {!! $componentData->css !!}
+                @endif
+            @endforeach
             {!! $page->page_css !!}
         </style>
         <main>
-            {!! $page->content !!}
+            @php
+                $explodedContent = $page->content;
+                foreach (App\Models\Component::all() as $componentData) {
+                    $explodedContent = str_replace('[[' . $componentData->title . ']]', $componentData->content, $explodedContent);
+                }
+            @endphp
+            {!! $explodedContent !!}
         </main>
         <script>
+            @foreach(App\Models\Component::all() as $componentData)
+                @if(str_contains($page->content, '[[' . $componentData->title . ']]'))
+                    {!! $componentData->js !!}
+                @endif
+            @endforeach
             {!! $page->page_js !!}
         </script>
     </body>
