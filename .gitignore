@@ -5,6 +5,7 @@ yarn-error.log
 /public/build/
 /public/hot/
 /public/storage/
+/public/media/
 
 ./idea
 ./idea/*
