@@ -12,7 +12,7 @@
         <x-sidebar-dropdown align="right" width="60" :links="[['pages.index', 'Create / Edit Page', 'pencil-fill'], ['pages.deleted', 'Deleted Pages', 'trash-fill']]">
             <x-slot name="trigger">
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:[#1AB188] text-white" id="toggleComponents" onclick="dropdown()">
-                    <i class="bi bi-box-fill"></i>
+                    <i class="bi bi-file-earmark-fill"></i>
                     <div class="flex justify-between w-full items-center">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Pages</span>
                         <span class="text-sm rotate-180" id="arrow">
@@ -28,6 +28,45 @@
                     <i class="bi bi-box-fill"></i>
                     <div class="flex justify-between w-full items-center">
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Components</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+            </x-slot>
+        </x-sidebar-dropdown>
+        <x-sidebar-dropdown align="right" width="60" :links="[['media.index', 'Images', 'images']]">
+            <x-slot name="trigger">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:[#1AB188] text-white" id="toggleComponents" onclick="dropdown()">
+                    <i class="bi bi-collection-fill"></i>
+                    <div class="flex justify-between w-full items-center">
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Media</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+            </x-slot>
+        </x-sidebar-dropdown>
+        <x-sidebar-dropdown align="right" width="60">
+            <x-slot name="trigger">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:[#1AB188] text-white" id="toggleComponents" onclick="dropdown()">
+                    <i class="bi bi-basket2-fill"></i>
+                    <div class="flex justify-between w-full items-center">
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">eCommerce</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+            </x-slot>
+        </x-sidebar-dropdown>
+        <x-sidebar-dropdown align="right" width="60">
+            <x-slot name="trigger">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:[#1AB188] text-white" id="toggleComponents" onclick="dropdown()">
+                    <i class="bi bi-gear-fill"></i>
+                    <div class="flex justify-between w-full items-center">
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Settings</span>
                         <span class="text-sm rotate-180" id="arrow">
                             <i class="bi bi-chevron-down"></i>
                         </span>

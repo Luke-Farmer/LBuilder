@@ -31,6 +31,20 @@
     background-color: #1AB188;
 }
 
+input[type="file"]::file-selector-button {
+    border: none;
+    padding: .5rem 0.75rem;
+    background-color: #1AB188;
+    transition: 0.25s;
+    margin-right: 1rem;
+    color: white;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #179b77;
+    cursor: pointer;
+}
+
 .auth-form button {
     background-color: #1AB188;
 }
