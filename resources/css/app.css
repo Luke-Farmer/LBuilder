@@ -27,7 +27,7 @@
     border-color: transparent;
 }
 
-.auth-form input[type='checkbox']:checked {
+input[type='checkbox']:checked {
     background-color: #1AB188;
 }
 

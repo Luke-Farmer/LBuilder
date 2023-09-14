@@ -34,7 +34,7 @@ class PageController extends Controller
     {
         $page = new Page;
         $validator =  Validator::make($request->all(), [
-            'slug' => 'required|alpha_dash|min:1|max:255|unique:pages,slug'
+            'slug' => 'required|min:1|max:255|unique:pages,slug'
         ]);
         if ($validator->fails() || is_null($request->title)) {
             return redirect()

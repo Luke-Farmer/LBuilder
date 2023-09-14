@@ -71,7 +71,13 @@ class MediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $media = Media::find($id);
+        $modelId = $media->model->id;
+        $modelUser = User::find($modelId);
+        $modelUser->deleteMedia($media->id);
+
+        return redirect()
+            ->back();
     }
 
 }
