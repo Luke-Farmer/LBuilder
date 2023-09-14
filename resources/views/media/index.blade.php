@@ -28,11 +28,20 @@
                 @if(!$medias->isEmpty())
                     <div class="grid grid-cols-6 gap-8">
                         @foreach($medias as $media)
-                            <div class="col-span-1 bg-[#14151F] rounded-md flex flex-col justify-between">
-                                <img class="p-8 h-full object-cover" src="{{ $media->getUrl() }}" />
+                            <div class="col-span-1 bg-[#14151F] rounded-md flex flex-col justify-between relative">
+                                <img class="h-[250px] object-cover rounded-t-md" src="{{ $media->getUrl() }}" />
                                 <div class="relative">
                                     <input class="bg-[#282a36] rounded-b-md p-2 text-white w-full pr-12 border-0 focus:border-0 focus:ring-0" readonly type="text" value="{{ str_replace(config('app.url'), '', $media->getUrl()) }}" id="{{ $media->id }}">
                                     <button class="absolute bottom-0 right-0 py-2 px-3" onclick="copyText({{ $media->id }})"><i class="bi bi-clipboard-fill text-[#1AB188]"></i></button>
+                                </div>
+                                <div class="absolute top-2 right-2">
+                                    <form class="" action="{{ route('media.destroy', $media->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="w-[22px] h-[22px] rounded-md hover:cursor-pointer inline-flex items-center justify-center p-0.5 border border-transparent font-semibold text-xs text-white tracking-widest bg-[#1AB188] hover:bg-[#179b77] focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" value="&lt;i class=&#39;bi-alarm&#39;&gt;&lt;/i&gt;" type="submit" onclick="clicked()">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach

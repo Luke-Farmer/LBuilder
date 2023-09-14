@@ -4,27 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b489bca3-d7dc-4e69-9075-6e77481a62de" name="Changes" comment="feat: url validation update:">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/deleted.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/setup.blade.php" afterDir="false" />
+    <list default="true" id="b489bca3-d7dc-4e69-9075-6e77481a62de" name="Changes" comment="feat: Add roles, user management, and fixed some page validation">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserManagementController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/UserManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_08_17_184335_create_permission_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_08_25_154025_create_user_management_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/RolesAndPermissions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users/permissions.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_08_10_160842_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_08_10_160842_create_pages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/authentication-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/authentication-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/responsive-nav-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/responsive-nav-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jetstream.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jetstream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/media/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/media/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
+    <list id="bb956965-6693-4765-8548-519bb72bcde0" name="Don't commit" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/add-components-builder" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,13 +50,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
@@ -171,6 +172,14 @@
       <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/league/glide" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">&quot;customColor&quot;: &quot;&quot;,
@@ -180,48 +189,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/cms-page-url-updates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/add-media-management&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Space Code Reviews" />
       <window_info id="Bookmarks" side_tool="true" />
-      <window_info id="VcsChanges" weight="0.17161459" />
+      <window_info id="VcsChanges" weight="0.15651041" />
       <window_info id="Merge Requests" />
       <window_info id="Commit_Guest" />
       <window_info id="npm" side_tool="true" weight="0.17161459" />
       <window_info id="Pull Requests" weight="0.23776042" />
       <window_info id="Robo tasks" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3018229" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15546875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.23776042" />
-      <window_info id="Commit" order="2" weight="0.3018229" />
+      <window_info active="true" id="Commit" order="2" visible="true" weight="0.15546875" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="Database Console View" />
       <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Messages" weight="0.32994187" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32994187" />
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Run" weight="0.32994187" />
       <window_info anchor="bottom" id="Find" weight="0.32994187" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32994187" />
       <window_info anchor="bottom" id="Problems View" order="1" weight="0.32994187" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32994187" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.314438" />
       <window_info anchor="bottom" id="Debug" order="3" show_stripe_button="false" weight="0.32994187" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.32994187" />
       <window_info anchor="right" id="make" side_tool="true" />
       <window_info anchor="right" id="documentation.v2" side_tool="true" />
       <window_info anchor="right" id="Meet New UI" side_tool="true" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.32994792" />
-      <window_info anchor="right" id="Database" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="1" weight="0.32994792" />
+      <window_info anchor="right" id="Data base Tool Window" order="2" side_tool="true" weight="0.32994792" />
     </layout>
   </component>
   <component name="RecentsManager">
@@ -276,6 +292,10 @@
       <workItem from="1691609680865" duration="2359000" />
       <workItem from="1691548928324" duration="777000" />
       <workItem from="1691677684985" duration="26079000" />
+      <workItem from="1692282822084" duration="9234000" />
+      <workItem from="1692976945759" duration="6754000" />
+      <workItem from="1692983756130" duration="8705000" />
+      <workItem from="1694683623194" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="feat: published routes, styled authentication:">
       <option name="closed" value="true" />
@@ -325,7 +345,31 @@
       <option name="project" value="LOCAL" />
       <updated>1691728025642</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: Create add, edit, delete, restore page functionality and styles:">
+      <option name="closed" value="true" />
+      <created>1691872315907</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691872315908</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: Create add, edit, delete, restore component functionality and styles:">
+      <option name="closed" value="true" />
+      <created>1692113716950</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1692113716950</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: create media uploads and gallery">
+      <option name="closed" value="true" />
+      <created>1692246339647</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1692246339647</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +391,11 @@
     <MESSAGE value="feat: Install Laravel Permissions:" />
     <MESSAGE value="feat: Added dashboard and page builder:" />
     <MESSAGE value="feat: url validation update:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: url validation update:" />
+    <MESSAGE value="feat: Create add, edit, delete, restore page functionality and styles:" />
+    <MESSAGE value="feat: Create add, edit, delete, restore component functionality and styles:" />
+    <MESSAGE value="feat: create media uploads and gallery" />
+    <MESSAGE value="feat: Add roles, user management, and fixed some page validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add roles, user management, and fixed some page validation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

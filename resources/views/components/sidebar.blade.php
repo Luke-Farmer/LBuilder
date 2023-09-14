@@ -61,7 +61,7 @@
                 </div>
             </x-slot>
         </x-sidebar-dropdown>
-        <x-sidebar-dropdown align="right" width="60">
+        <x-sidebar-dropdown align="right" width="60" :links="[['users.index', 'Manange Users', 'pencil-fill']]">
             <x-slot name="trigger">
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:[#1AB188] text-white" id="toggleComponents" onclick="dropdown()">
                     <i class="bi bi-gear-fill"></i>
