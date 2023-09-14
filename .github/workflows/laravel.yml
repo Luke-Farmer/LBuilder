@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ~/lbuilder/LBuilder
+            cd ~/LBuilder
             git pull
             bash ./vendor/laravel/sail/bin/sail composer install
             bash ./vendor/laravel/sail/bin/sail npm install
