@@ -34,7 +34,7 @@ class MediaController extends Controller
     public function store(Request $request) : RedirectResponse
     {
         $modelUser = User::find($request->user()->id);
-        $modelUser->addMediaFromRequest('file')->toMediaCollection('icons');
+        $modelUser->addMediaFromRequest('file')->toMediaCollection();
         $modelUser->save();
 
         return redirect()
