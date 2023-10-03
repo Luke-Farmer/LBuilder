@@ -4,6 +4,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UserManagementController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +22,19 @@ Route::get('/', [PageController::class, 'home'])->name('homepage');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 
+    Route::get('/admin', function () {
+        return redirect('/admin/dashboard');
+    });
+
     Route::prefix('admin')->group(function () {
+
+        Route::get('/welcome', function () {
+            return view('welcome');
+        })->name('welcome');
 
         Route::get('/dashboard', function () {
             return view('dashboard');
-        })->name('dashboard');
+        })->name('dashboard')->can('view_dashboard');
 
         Route::prefix('pages')->group(function () {
 

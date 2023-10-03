@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Component;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
@@ -16,6 +17,9 @@ class MediaController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('add_media')) {
+            return redirect(route('dashboard'));
+        }
         return view('media.index')
             ->withMedias($medias = Media::all());
     }
@@ -33,6 +37,9 @@ class MediaController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
+        if (! Gate::allows('add_media')) {
+            return redirect(route('dashboard'));
+        }
         $modelUser = User::find($request->user()->id);
         $modelUser->addMediaFromRequest('file')->toMediaCollection();
         $modelUser->save();
@@ -71,6 +78,9 @@ class MediaController extends Controller
      */
     public function destroy($id)
     {
+        if (! Gate::allows('delete_media')) {
+            return redirect(route('dashboard'));
+        }
         $media = Media::find($id);
         $modelId = $media->model->id;
         $modelUser = User::find($modelId);

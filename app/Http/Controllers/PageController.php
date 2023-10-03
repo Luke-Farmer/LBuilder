@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use \Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Gate;
 
 class PageController extends Controller
 {
@@ -15,6 +16,9 @@ class PageController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('create_edit_pages')) {
+            return redirect(route('dashboard'));
+        }
         return view('pages.index')
             ->withPages($pages = Page::orderBy('title')->get());
     }
@@ -32,6 +36,9 @@ class PageController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (! Gate::allows('create_edit_pages')) {
+            return redirect(route('dashboard'));
+        }
         $page = new Page;
         $validator =  Validator::make($request->all(), [
             'slug' => 'required|min:1|max:255|unique:pages,slug'
@@ -54,7 +61,9 @@ class PageController extends Controller
     public function show($page)
     {
         $pageData = Page::where('slug', '=', $page)->first();
-        if($pageData->is_draft == '1' && !Auth::check() || $pageData->is_deleted == '1') {
+        if (!isset($pageData)){
+            return redirect()->to('/');
+        } elseif($pageData->is_draft == '1' && !Auth::check() || $pageData->is_deleted == '1') {
             return redirect()->to('/');
         }
         return view('pages.template')
@@ -77,6 +86,9 @@ class PageController extends Controller
      */
     public function edit($id)
     {
+        if (! Gate::allows('create_edit_pages')) {
+            return redirect(route('dashboard'));
+        }
         return view('pages.edit')
             ->withPage($page = Page::find($id));
     }
@@ -86,6 +98,9 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (! Gate::allows('create_edit_pages')) {
+            return redirect(route('dashboard'));
+        }
         $page = Page::find($id);
         $validator =  Validator::make($request->all(), [
             'slug' => 'required|alpha_dash|min:1|max:255|unique:pages,slug'
@@ -117,9 +132,14 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-
+        if (! Gate::allows('delete_pages')) {
+            return redirect()->back();
+        }
         $page = Page::find($id);
         if ($page->is_deleted === '1') {
+            if (! Gate::allows('wipe_pages')) {
+                return redirect()->back();
+            }
             $page->delete();
         } else {
            $page->is_draft = '1';

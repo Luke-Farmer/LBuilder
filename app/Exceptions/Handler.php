@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -27,4 +29,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Exception|Throwable $e)
+    {
+        if ($e instanceof AuthorizationException){
+            return redirect(route('welcome'));
+        }
+    }
+
 }

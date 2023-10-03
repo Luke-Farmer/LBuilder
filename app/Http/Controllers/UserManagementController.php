@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserManagement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -15,6 +16,9 @@ class UserManagementController extends Controller
      */
     public function index()
     {
+//        if (! Gate::allows('manage_users')) {
+//            return redirect(route('manage users'));
+//        }
         $users = User::all();
         $permissions = Permission::all();
         return view('users.index')
@@ -51,6 +55,9 @@ class UserManagementController extends Controller
      */
     public function edit($id)
     {
+//        if (! Gate::allows('manage_users')) {
+//            return redirect(route('manage users'));
+//        }
         $user = User::where('id', '=', $id)->first();
         $permissions = Permission::all();
         return view('users.permissions')
@@ -61,14 +68,16 @@ class UserManagementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $modelUser = User::find($id)->first();
+//        if (! Gate::allows('manage_users')) {
+//            return redirect(route('manage users'));
+//        }
         foreach (Permission::all() as $permission) {
             if ( ! $request->has(str_replace(' ', '_', $permission->name))) {
-                $modelUser->revokePermissionTo($permission->name);
+                $user->revokePermissionTo($permission->name);
             } else {
-                $modelUser->givePermissionTo($permission->name);
+                $user->givePermissionTo($permission->name);
             }
         }
         return redirect()
