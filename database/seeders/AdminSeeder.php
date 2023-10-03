@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RolesAndPermissions extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
