@@ -59,6 +59,15 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermissionTo('add media');
         });
 
+        Gate::define('delete_media', function(User $user) {
+            return $user->hasPermissionTo('add media');
+        });
+
+        // ecommerce
+        Gate::define('manage_ecommerce', function(User $user) {
+            return $user->hasPermissionTo('manage ecommerce');
+        });
+
         // settings
         Gate::define('manage_settings', function(User $user) {
             return $user->hasPermissionTo('manage users');
