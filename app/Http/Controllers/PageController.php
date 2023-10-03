@@ -164,4 +164,8 @@ class PageController extends Controller
         return redirect()
             ->back();
     }
+
+    public function dashboard() {
+        return view('dashboard');
+    }
 }
