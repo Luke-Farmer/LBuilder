@@ -30,11 +30,11 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Exception|Throwable $e)
-    {
+//    public function render($request, Exception|Throwable $e)
+//    {
 //        if ($e instanceof AuthorizationException){
 //            return redirect(route('welcome'));
 //        }
-    }
+//    }
 
 }
