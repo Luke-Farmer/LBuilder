@@ -26,9 +26,9 @@ class RolesAndPermissions extends Seeder
         Permission::create(['name' => 'delete components']);
         Permission::create(['name' => 'permanently delete components']);
         Permission::create(['name' => 'add media']);
-        Permission::create(['name' => 'view media']);
         Permission::create(['name' => 'delete media']);
-        Permission::create(['name' => 'manage users']);
+        Permission::create(['name' => 'manage settings']);
+        Permission::create(['name' => 'manage ecommerce']);
 
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());

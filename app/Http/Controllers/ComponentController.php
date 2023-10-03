@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Component;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,6 +15,9 @@ class ComponentController extends Controller
      */
     public function index()
     {
+        if (! Gate::allows('create_edit_components')) {
+            return redirect(route('dashboard'));
+        }
         $components = Component::orderBy('title')->get();
         return view('components.index')
             ->withComponents($components);
@@ -32,6 +36,9 @@ class ComponentController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
+        if (! Gate::allows('create_edit_components')) {
+            return redirect(route('dashboard'));
+        }
         $component = new Component;
         $validator =  Validator::make($request->all(), [
             'title' => 'required|min:1|max:255|unique:components,title'
@@ -60,6 +67,9 @@ class ComponentController extends Controller
      */
     public function edit($id)
     {
+        if (! Gate::allows('create_edit_components')) {
+            return redirect(route('dashboard'));
+        }
         return view('components.edit')
             ->withComponentData($component = Component::find($id));
     }
@@ -69,6 +79,9 @@ class ComponentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (! Gate::allows('create_edit_components')) {
+            return redirect(route('dashboard'));
+        }
         $component = Component::find($id);
         $validator =  Validator::make($request->all(), [
             'title' => 'required|alpha_dash|min:1|max:255|unique:components,title'
@@ -93,8 +106,14 @@ class ComponentController extends Controller
      */
     public function destroy($id)
     {
+        if (! Gate::allows('delete_components')) {
+            return redirect(route('dashboard'));
+        }
         $component = Component::find($id);
         if ($component->is_deleted === '1') {
+            if (! Gate::allows('wipe_components')) {
+                return redirect(route('dashboard'));
+            }
             $component->delete();
         } else {
             $component->is_deleted = '1';
