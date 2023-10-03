@@ -26,6 +26,7 @@ jobs:
             bash ./vendor/laravel/sail/bin/sail npm install
             bash ./vendor/laravel/sail/bin/sail npm run build
             bash ./vendor/laravel/sail/bin/sail artisan migrate
-            bash ./vendor/laravel/sail/bin/sail artisan db:seed-refresh --class=RolesAndPermissions
+            bash ./vendor/laravel/sail/bin/sail artisan migrate:refresh --path=/database/migrations/2023_08_17_184335_create_permission_tables.php
+            bash ./vendor/laravel/sail/bin/sail artisan db:seed --class=RolesAndPermissions
             bash ./vendor/laravel/sail/bin/sail down
             bash ./vendor/laravel/sail/bin/sail up -d
