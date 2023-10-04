@@ -9,6 +9,7 @@
     </head>
     <body>
         <style>
+            {!! $navigation->css !!}
             @foreach(App\Models\Component::all() as $componentData)
                 @if(str_contains($page->content, '[[' . $componentData->title . ']]'))
                     {!! $componentData->css !!}
@@ -17,6 +18,7 @@
             {!! $page->page_css !!}
         </style>
         <main>
+            {!! $navigation->content !!}
             @php
                 $explodedContent = $page->content;
                 foreach (App\Models\Component::all() as $componentData) {
@@ -26,6 +28,7 @@
             {!! $explodedContent !!}
         </main>
         <script>
+            {!! $navigation->js !!}
             @foreach(App\Models\Component::all() as $componentData)
                 @if(str_contains($page->content, '[[' . $componentData->title . ']]'))
                     {!! $componentData->js !!}
@@ -33,5 +36,6 @@
             @endforeach
             {!! $page->page_js !!}
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

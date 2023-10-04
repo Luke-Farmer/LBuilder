@@ -30,5 +30,6 @@ jobs:
             bash ./vendor/laravel/sail/bin/sail artisan migrate:refresh --path=/database/migrations/2014_10_12_000000_create_users_table.php
             bash ./vendor/laravel/sail/bin/sail artisan db:seed --class=RolesAndPermissions
             bash ./vendor/laravel/sail/bin/sail artisan db:seed --class=AdminSeeder
+            bash ./vendor/laravel/sail/bin/sail artisan db:seed --class=NavigationSeeder
             bash ./vendor/laravel/sail/bin/sail down
             bash ./vendor/laravel/sail/bin/sail up -d
