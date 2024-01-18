@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use App\Models\Navigation;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -63,6 +64,7 @@ class PageController extends Controller
     {
         $pageData = Page::where('slug', '=', $page)->first();
         $navigation = Navigation::where('id', '1')->first();
+        $footer = Footer::where('id', '1')->first();
         if (!isset($pageData)){
             return redirect()->to('/');
         } elseif($pageData->is_draft == '1' && !Auth::check() || $pageData->is_deleted == '1') {
@@ -70,20 +72,23 @@ class PageController extends Controller
         }
         return view('pages.template')
             ->withPage($pageData)
-            ->withNavigation($navigation);
+            ->withNavigation($navigation)
+            ->withFooter($footer);
     }
 
     public function home()
     {
         $pageData = Page::where('slug', '=', '/')->first();
         $navigation = Navigation::where('id', '1')->first();
+        $footer = Footer::where('id', '1')->first();
         if(is_null($pageData) || $pageData->is_draft === "1" && !Auth::check() || $pageData->is_deleted === "1" ) {
             return redirect()
                 ->route('dashboard');
         }
         return view('pages.template')
             ->withPage($pageData)
-            ->withNavigation($navigation);
+            ->withNavigation($navigation)
+            ->withFooter($footer);
     }
 
     /**
