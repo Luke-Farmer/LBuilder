@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ComponentController;
@@ -66,6 +67,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::resource('users', UserManagementController::class);
 
         Route::resource('navigation', NavigationController::class);
+
+        Route::resource('footer', FooterController::class);
 
     });
 });

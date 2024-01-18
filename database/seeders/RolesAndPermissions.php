@@ -30,6 +30,7 @@ class RolesAndPermissions extends Seeder
         Permission::create(['name' => 'manage ecommerce']);
         Permission::create(['name' => 'manage users']);
         Permission::create(['name' => 'manage navigation']);
+        Permission::create(['name' => 'manage footer']);
 
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());
